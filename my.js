@@ -101,10 +101,23 @@ class CommandLineInterface {
     // 监听回车键提交命令
     this.commandInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
+        e.preventDefault();
         this.executeCommand(this.commandInput.value);
         this.commandInput.value = '';
       }
     });
+
+    // 添加焦点事件确保输入框可交互
+    this.commandInput.addEventListener('focus', () => {
+        this.commandInput.style.outline = '2px solid #81c784';
+    });
+
+    this.commandInput.addEventListener('blur', () => {
+        this.commandInput.style.outline = 'none';
+    });
+
+    // 自动聚焦到输入框
+    this.commandInput.focus();
   }
 
   // 执行命令并显示结果
