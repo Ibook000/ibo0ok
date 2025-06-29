@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBO0OK | 个人博客</title>
+    <link rel="stylesheet" href="my.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 动态渐变背景 -->
+    <div class="background"></div>
+    <!-- 粒子背景容器 - 用于代码雨效果 -->
+    <div class="particles"></div>
+    <!-- 背景发光效果容器 -->
+    <div class="glow-container"></div>
+    <!-- 终端窗口主容器 -->
+    <div class="content">
+        <!-- 终端窗口头部 - 包含控制按钮和标题 -->
+        <div class="terminal-header">
+            <div class="window-controls">
+                <div class="control red"></div>
+                <div class="control yellow"></div>
+                <div class="control green"></div>
+            </div>
+            <div class="terminal-title">ibo0ok@blog: ~ $ <span class="blink">_</span></div>
+        </div>
+        <!-- 终端窗口内容区域 -->
+        <div class="terminal-body">
+            <!-- 霓虹效果标题 -->
+            <h1 class="neon-text">WELCOME TO MY BLOG</h1>
+            <!-- 打字机效果副标题 -->
+            <p class="typewriter">Frontend Developer & Tech Enthusiast</p>
+            <!-- 社交链接区域 -->
+            <div class="social-links">
+                <a href="https://github.com/Ibook000" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/BookI50684" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon" target="_blank"><i class="fab fa-codepen"></i></a>
+            </div>
+            <!-- 命令输出区域 - 模拟终端命令执行结果 -->
+            <div class="command-output">
+                <p class="prompt">ibook@dev:~$ cat contact-info.txt</p>
+                <ul class="skills-list">
+                    <li><i class="fab fa-html5"></i> HTML5</li>
+                    <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                    <li><i class="fab fa-js"></i> JavaScript</li>
+                    <li><i class="fab fa-react"></i> React</li>
+                    <li><i class="fab fa-node-js"></i> Node.js</li>
+                </ul>
+                <p class="prompt">ibook@dev:~$ cat social-contacts.txt</p>
+                <ul class="skills-list">
+                    <li><i class="fab fa-weixin"></i> 微信号: IBO0OK</li>
+                    <li><i class="fab fa-qq"></i> QQ号: 2424935829</li>
+                    <li><i class="fab fa-discord"></i> Discord: ibook_2</li>
+                    <li><i class="fab fa-telegram"></i> Telegram: @ibookusbb</li>
+                </ul>
+                <!-- 交互式命令行输入区域 -->
+                <div class="command-input">
+                    <span class="prompt">ibook@dev:~$</span>
+                    <input type="text" id="command" placeholder="输入 'help' 查看可用命令...">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript 文件 - 包含交互逻辑和动画效果 -->
+    <script src="my.js"></script>
+</body>
+</html>
