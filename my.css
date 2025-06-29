@@ -62,15 +62,16 @@ body {
 
 /* 终端窗口样式 - 主容器 */
 .content {
-    z-index: 1; /* 设置 z-index 为 1，使内容在背景图片上方 */
+    z-index: 1;
     width: 90%;
     max-width: 800px;
-    background-color: rgba(17, 17, 34, 0.85); /* 深色半透明背景 */
-    border-radius: 12px; /* 圆角 */
-    box-shadow: 0 0 30px rgba(103, 58, 183, 0.3); /* 紫色发光边框 */
+    background-color: rgba(17, 17, 34, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(103, 58, 183, 0.3), inset 0 0 15px rgba(103, 58, 183, 0.1);
     overflow: hidden;
     border: 1px solid rgba(103, 58, 183, 0.5);
-    transition: all 0.5s ease; /* 添加过渡效果 */
+    transition: all 0.5s ease;
+    backdrop-filter: blur(8px);
 }
 
 /* 终端窗口悬停效果 */
@@ -108,8 +109,8 @@ body {
 }
 
 .red { background-color: #ff5f56; } /* 关闭按钮 */
-yellow { background-color: #ffbd2e; } /* 最小化按钮 */
-green { background-color: #27c93f; } /* 最大化按钮 */
+.yellow { background-color: #ffbd2e; } /* 最小化按钮 */
+.green { background-color: #27c93f; } /* 最大化按钮 */
 
 /* 终端标题 - 模拟命令行提示符 */
 .terminal-title {
@@ -187,6 +188,29 @@ green { background-color: #27c93f; } /* 最大化按钮 */
     border-left: 3px solid #81c784;
     position: relative;
     overflow: hidden;
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #9c27b0 rgba(10, 10, 25, 0.5);
+}
+
+.command-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.command-output::-webkit-scrollbar-track {
+    background: rgba(10, 10, 25, 0.5);
+    border-radius: 4px;
+}
+
+.command-output::-webkit-scrollbar-thumb {
+    background-color: #9c27b0;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.command-output::-webkit-scrollbar-thumb:hover {
+    background-color: #ba68c8;
 }
 
 /* 命令输出装饰元素 - 增加科技感 */
@@ -198,3 +222,120 @@ green { background-color: #27c93f; } /* 最大化按钮 */
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(103, 58, 183, 0.1) 1px, transparent 1px);
+    background-size: 100% 20px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* 命令提示符样式 */
+.prompt {
+    color: #81c784;
+    font-weight: bold;
+}
+
+/* 技能列表样式 */
+.skills-list {
+    list-style-type: none;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* 技能列表项样式 */
+.skills-list li {
+    background-color: rgba(103, 58, 183, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease; /* 添加过渡效果 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 技能列表项悬停效果 */
+.skills-list li:hover {
+    background-color: rgba(103, 58, 183, 0.4);
+    transform: scale(1.05); /* 轻微放大 */
+}
+
+/* 技能列表项图标样式 */
+.skills-list i {
+    width: 20px;
+    text-align: center;
+}
+
+/* 交互式命令行输入区域 */
+.command-input {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* 命令行输入提示符 */
+.command-input .prompt {
+    margin-right: 10px;
+}
+
+/* 命令行输入框 */
+#command {
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-family: inherit;
+    font-size: inherit;
+    flex-grow: 1;
+    outline: none;
+    padding: 8px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+#command:focus {
+    border-bottom: 1px solid #81c784;
+}
+
+/* 动画定义 - 渐变背景动画 */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 动画定义 - 呼吸效果 */
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+/* 动画定义 - 霓虹文字发光 */
+@keyframes neonGlow {
+    0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #9c27b0, 0 0 20px #9c27b0; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ba68c8, 0 0 40px #ba68c8; }
+}
+
+/* 动画定义 - 文字颜色偏移 */
+@keyframes textShift {
+    0%, 100% { background-position: 0%; }
+    50% { background-position: 100%; }
+}
+
+/* 动画定义 - 光标闪烁 */
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 动画定义 - 打字效果 */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* 动画定义 - 打字光标闪烁 */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #81c784; }
+}
