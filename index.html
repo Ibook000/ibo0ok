@@ -1,69 +1,150 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IBO0OK | 个人博客</title>
-    <link rel="stylesheet" href="my.css">
+    <title>IBO0OK | Independent Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles/site.css">
 </head>
 <body>
-    <!-- 动态渐变背景 -->
-    <div class="background"></div>
-    <!-- 粒子背景容器 - 用于代码雨效果 -->
-    <div class="particles"></div>
-    <!-- 背景发光效果容器 -->
-    <div class="glow-container"></div>
-    <!-- 终端窗口主容器 -->
-    <div class="content">
-        <!-- 终端窗口头部 - 包含控制按钮和标题 -->
-        <div class="terminal-header">
-            <div class="window-controls">
-                <div class="control red"></div>
-                <div class="control yellow"></div>
-                <div class="control green"></div>
-            </div>
-            <div class="terminal-title">ibo0ok@blog: ~ $ <span class="blink">_</span></div>
-        </div>
-        <!-- 终端窗口内容区域 -->
-        <div class="terminal-body">
-            <!-- 霓虹效果标题 -->
-            <h1 class="neon-text">WELCOME TO MY BLOG</h1>
-            <!-- 打字机效果副标题 -->
-            <p class="typewriter">Frontend Developer & Tech Enthusiast</p>
-            <!-- 社交链接区域 -->
-            <div class="social-links">
-                <a href="https://github.com/Ibook000" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/BookI50684" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-icon" target="_blank"><i class="fab fa-codepen"></i></a>
-            </div>
-            <!-- 命令输出区域 - 模拟终端命令执行结果 -->
-            <div class="command-output">
-                <p class="prompt">ibook@dev:~$ cat contact-info.txt</p>
-                <ul class="skills-list">
-                    <li><i class="fab fa-html5"></i> HTML5</li>
-                    <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                    <li><i class="fab fa-js"></i> JavaScript</li>
-                    <li><i class="fab fa-react"></i> React</li>
-                    <li><i class="fab fa-node-js"></i> Node.js</li>
-                </ul>
-                <p class="prompt">ibook@dev:~$ cat social-contacts.txt</p>
-                <ul class="skills-list">
-                    <li><i class="fab fa-weixin"></i> 微信号: IBO0OK</li>
-                    <li><i class="fab fa-qq"></i> QQ号: 2424935829</li>
-                    <li><i class="fab fa-discord"></i> Discord: ibook_2</li>
-                    <li><i class="fab fa-telegram"></i> Telegram: @ibookusbb</li>
-                </ul>
-                <!-- 交互式命令行输入区域 -->
-                <div class="command-input">
-                    <span class="prompt">ibook@dev:~$</span>
-                    <input type="text" id="command" placeholder="输入 'help' 查看可用命令...">
+    <div class="page-bg" aria-hidden="true">
+        <div class="bg-grid"></div>
+        <div class="bg-glow bg-glow-a"></div>
+        <div class="bg-glow bg-glow-b"></div>
+        <div class="bg-dust" id="bgDust"></div>
+    </div>
+
+    <header class="hero">
+        <nav class="hero-nav">
+            <span class="brand">IBO0OK</span>
+            <a href="https://github.com/Ibook000" target="_blank" rel="noopener noreferrer" class="nav-link">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+        </nav>
+
+        <div class="hero-inner">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">Independent Builder</p>
+                <h1>Interfaces, Systems, Intelligent Tools.</h1>
+                <p class="hero-desc">
+                    我是 Ibook，关注界面体验、自动化流程与智能工具。
+                    这里展示我正在打磨的产品、系统与持续演进中的作品。
+                </p>
+                <div class="hero-actions">
+                    <a href="https://github.com/Ibook000" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View GitHub</a>
+                    <a href="#work" class="btn btn-ghost">Selected Work</a>
                 </div>
             </div>
+
+            <div class="hero-visual reveal delay-1">
+                <div class="avatar-shell">
+                    <img src="assets/images/avatar.jpg" alt="Ibook Avatar" class="avatar-image">
+                    <span class="orbit orbit-a"></span>
+                    <span class="orbit orbit-b"></span>
+                </div>
+                <p class="avatar-tag">@Ibook000</p>
+            </div>
         </div>
-    </div>
-    <!-- JavaScript 文件 - 包含交互逻辑和动画效果 -->
-    <script src="my.js"></script>
+    </header>
+
+    <main>
+        <section class="section section-github reveal" id="work">
+            <div class="section-head">
+                <h2>Selected Work</h2>
+                <p>近期完成、持续迭代，以及仍在扩展边界的项目。</p>
+            </div>
+            <div class="github-metrics">
+                <div class="metric-item">
+                    <span class="metric-label">Repositories</span>
+                    <strong class="metric-value" id="ghReposCount">--</strong>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Followers</span>
+                    <strong class="metric-value" id="ghFollowers">--</strong>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Following</span>
+                    <strong class="metric-value" id="ghFollowing">--</strong>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Since</span>
+                    <strong class="metric-value" id="ghSince">--</strong>
+                </div>
+            </div>
+            <p class="github-status" id="ghStatus">Independent work across product, automation, and AI tools.</p>
+            <div class="github-layout">
+                <div>
+                    <h3 class="sub-title">Recent Projects</h3>
+                    <ul class="repo-stream" id="repoList"></ul>
+                </div>
+                <div>
+                    <h3 class="sub-title">Technical Focus</h3>
+                    <ul class="lang-stream" id="languageList"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-support reveal">
+            <div class="section-head">
+                <h2>Focus Areas</h2>
+                <p>前端体验、自动化系统、数据工具与服务能力，是我持续投入的方向。</p>
+            </div>
+            <ul class="skill-line">
+                <li><i class="fab fa-python"></i> Python Automation</li>
+                <li><i class="fas fa-robot"></i> Bot Development</li>
+                <li><i class="fas fa-plug"></i> MCP / API Tools</li>
+                <li><i class="fab fa-js"></i> JavaScript</li>
+                <li><i class="fas fa-code"></i> TypeScript</li>
+                <li><i class="fab fa-vuejs"></i> Vue</li>
+                <li><i class="fab fa-html5"></i> HTML/CSS</li>
+                <li><i class="fas fa-chart-line"></i> Crypto Data Apps</li>
+            </ul>
+            <p class="stack-summary" id="stackSummary">Current focus across product engineering and automation.</p>
+            <div class="social-row">
+                <a href="https://github.com/Ibook000" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://x.com/BookI50684" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> X</a>
+                <a href="https://t.me/ibookusbb" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i> Telegram</a>
+                <span><i class="fab fa-weixin"></i> WeChat: IBO0OK</span>
+            </div>
+        </section>
+
+        <section class="section section-terminal reveal" id="terminal">
+            <div class="terminal-shell">
+                <div class="terminal-header">
+                    <div class="window-controls" aria-hidden="true">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <p class="terminal-title">ibook@dev:~</p>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-log" id="terminalLog">
+                        <p class="log-line prompt">ibook@dev:~$ help</p>
+                        <p class="log-line">Try: about, skills, contact, projects, work, clear</p>
+                    </div>
+                    <label for="command" class="command-input">
+                        <span class="prompt">ibook@dev:~$</span>
+                        <input type="text" id="command" placeholder="输入命令，例如 help" autocomplete="off">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-cta reveal">
+            <h2>Open to Thoughtful Collaboration.</h2>
+            <p>欢迎围绕产品体验、自动化系统、数据工具与 AI 应用交流合作。</p>
+            <a href="https://github.com/Ibook000" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                View Profile
+            </a>
+        </section>
+    </main>
+
+    <script src="assets/scripts/site.js"></script>
 </body>
 </html>
