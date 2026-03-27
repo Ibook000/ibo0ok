@@ -6,7 +6,7 @@
 ## 项目亮点
 - 首页主视觉展示个人头像（`assets/images/avatar.jpg`）
 - Selected Work：展示仓库规模、近期项目与技术分布
-- 终端式交互命令（`help/about/skills/contact/projects/github/clear`）
+- 终端式交互命令（`help/about/skills/contact/projects/work/clear`）
 - 响应式布局，适配桌面与移动端
 
 ## 基于仓库信息的技术画像（2026-03-27 抓取）
@@ -53,6 +53,13 @@
 - `assets/styles/site.css`：页面样式
 - `assets/scripts/site.js`：交互逻辑与 GitHub 数据渲染
 - `assets/images/avatar.jpg`：头像资源
+
+## GitHub Pages 部署
+- 工作流文件：`.github/workflows/static.yml`
+- 采用 `build -> deploy` 两阶段，仅上传 `_site` 发布目录
+- 自动生成 `.nojekyll`，避免静态资源路径被 Jekyll 处理
+- 自动生成 `404.html`（回退到首页），降低访问深链时报错概率
+- 如使用自定义域名，仓库根目录放置 `CNAME` 会被自动带入发布包
 
 ## 联系方式
 - GitHub: [Ibook000](https://github.com/Ibook000)
