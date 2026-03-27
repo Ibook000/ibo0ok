@@ -3,6 +3,9 @@
 这是我的个人主页项目，采用终端风格交互与作品集式展示。
 页面会展示头像、代表项目、技术方向与联系方式。
 
+## 在线访问
+- 面向访客展示站点：[https://ibook000.github.io/ibo0ok/](https://ibook000.github.io/ibo0ok/)
+
 ## 项目亮点
 - 首页主视觉展示个人头像（`assets/images/avatar.jpg`）
 - Selected Work：展示仓库规模、近期项目与技术分布
